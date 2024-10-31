@@ -1,0 +1,327 @@
+-- Create the students table
+-- CREATE TABLE students (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(50),
+--     age INTEGER,
+--     campus_id INTEGER,
+--     total_grade FLOAT
+-- );
+
+-- CREATE TABLE campus (
+--     id SERIAL PRIMARY KEY,
+--     campus_name VARCHAR(50),
+--     batch VARCHAR(10),
+--     start_date DATE
+-- );
+
+-- INSERT INTO students (name, age, campus_id, total_grade)
+-- VALUES
+--     ('Rafif Iman', 20, 1, 85.5),
+--     ('Hana Arisona', 21, 2, 90.2),
+--     ('Raka Purnomo', 19, 1, 78.9),
+--     ('Danu Irfansyah', 20, 3, 92.7),
+--     ('Rachman Ardhi', 22, 2, 88.1);
+
+-- INSERT INTO campus (campus_name, batch, start_date)
+-- VALUES
+--     ('Remote', 'RMT-1', '2023-01-01'),
+--     ('Jakarta', 'HCK-2', '2023-02-01'),
+--     ('BSD', 'BSD-4', '2023-03-01'),
+--     ('Surabaya', 'SUB-1', '2023-04-01'),
+--     ('Singapore', 'SIN-1', '2023-05-01');
+
+-- SELECT * FROM campus
+
+-- SELECT students.name, students.age FROM students
+
+-- SELECT s.name, campus_name FROM students s, campus;
+
+-- SELECT DISTINCT campus_name, batch FROM campus
+
+-- SELECT *
+-- FROM students
+-- WHERE name LIKE 'R%'
+
+-- SELECT * FROM students WHERE age BETWEEN 19 AND 21
+
+-- SELECT * FROM students WHERE name ILIKE '%	iman';
+
+-- SELECT * FROM students;
+
+-- SELECT
+--   MIN(total_grade) AS cupu
+-- , MAX(total_grade) AS keren
+-- , AVG(total_grade) AS b_aja
+-- FROM students
+
+-- SELECT
+-- MIN(start_date) AS sepuh,
+-- MAX(start_date) AS junior
+-- FROM campus;
+
+-- SELECT COUNT (DISTINCT age) FROM students;
+
+-- SELECT COUNT(1) FROM students;
+
+-- SELECT
+-- campus_id, COUNT(1) as jumlah_murid
+-- FROM students
+-- GROUP BY campus_id;
+
+-- SELECT campus_name, batch, start_date
+-- FROM campus
+-- ORDER BY campus_name ASC, start_date ASC
+
+
+-- CREATE TABLE assignment_scores (
+--     id SERIAL PRIMARY KEY,
+--     students_id INTEGER,
+--     assignment_id INTEGER,
+--     score FLOAT
+-- );
+
+-- CREATE TABLE assignments ( id SERIAL PRIMARY KEY, assignment_name VARCHAR(100));
+
+-- INSERT INTO assignments (assignment_name) VALUES 
+-- ('Math Assignment 1'), 
+-- ('Science Project'), 
+-- ('History Essay'), 
+-- ('English Presentation'), 
+-- ('Computer Science Lab');
+
+-- INSERT INTO campus (campus_name, batch, start_date) VALUES 
+-- ('North Campus', 'Batch A', '2023-09-01'), 
+-- ('South Campus', 'Batch B', '2023-09-01'), 
+-- ('East Campus', 'Batch C', '2023-09-01'), 
+-- ('West Campus', 'Batch D', '2023-09-01'), 
+-- ('Central Campus', 'Batch E', '2023-09-01');
+
+
+-- INSERT INTO students (name, age, campus_id, total_grade) VALUES 
+-- ('Student1', 18, 1, 85.5), 
+-- ('Student2', 19, 1, 78.0), 
+-- ('Student3', 20, 1, 92.0), 
+-- ('Student4', 21, 1, 66.5), 
+-- ('Student5', 22, 1, 74.0), 
+-- ('Student6', 18, 1, 88.0), 
+-- ('Student7', 19, 1, 81.5), 
+-- ('Student8', 20, 1, 79.0), 
+-- ('Student9', 21, 1, 90.5), 
+-- ('Student10', 22, 1, 95.0), 
+-- ('Student11', 18, 1, 87.0), 
+-- ('Student12', 19, 1, 82.0), 
+-- ('Student13', 20, 1, 75.5), 
+-- ('Student14', 21, 1, 69.0), 
+-- ('Student15', 22, 1, 85.0), 
+-- ('Student16', 18, 1, 80.0), 
+-- ('Student17', 19, 1, 78.5), 
+-- ('Student18', 20, 1, 83.0), 
+-- ('Student19', 21, 1, 91.5), 
+-- ('Student20', 22, 1, 77.0),
+-- ('Student21', 18, 2, 86.5), 
+-- ('Student22', 19, 2, 79.0), 
+-- ('Student23', 20, 2, 93.0), 
+-- ('Student24', 21, 2, 67.5), 
+-- ('Student25', 22, 2, 73.0), 
+-- ('Student26', 18, 2, 89.0), 
+-- ('Student27', 19, 2, 80.5), 
+-- ('Student28', 20, 2, 78.0), 
+-- ('Student29', 21, 2, 91.5), 
+-- ('Student30', 22, 2, 96.0), 
+-- ('Student31', 18, 2, 88.0), 
+-- ('Student32', 19, 2, 83.0), 
+-- ('Student33', 20, 2, 76.5), 
+-- ('Student34', 21, 2, 68.0), 
+-- ('Student35', 22, 2, 86.0), 
+-- ('Student36', 18, 2, 81.0), 
+-- ('Student37', 19, 2, 79.5), 
+-- ('Student38', 20, 2, 84.0), 
+-- ('Student39', 21, 2, 92.5), 
+-- ('Student40', 22, 2, 78.0), 
+-- ('Student41', 18, 3, 87.5), 
+-- ('Student42', 19, 3, 80.0), 
+-- ('Student43', 20, 3, 94.0), 
+-- ('Student44', 21, 3, 68.5), 
+-- ('Student45', 22, 3, 72.0),
+-- ('Student46', 18, 3, 90.0), 
+-- ('Student47', 19, 3, 81.5), 
+-- ('Student48', 20, 3, 77.0), 
+-- ('Student49', 21, 3, 92.5), 
+-- ('Student50', 22, 3, 97.0), 
+-- ('Student51', 18, 3, 89.0), 
+-- ('Student52', 19, 3, 84.0), 
+-- ('Student53', 20, 3, 77.5), 
+-- ('Student54', 21, 3, 67.0), 
+-- ('Student55', 22, 3, 87.0), 
+-- ('Student56', 18, 3, 82.0), 
+-- ('Student57', 19, 3, 80.5), 
+-- ('Student58', 20, 3, 85.0), 
+-- ('Student59', 21, 3, 93.5), 
+-- ('Student60', 22, 3, 79.0), 
+-- ('Student61', 18, 4, 88.5), 
+-- ('Student62', 19, 4, 81.0), 
+-- ('Student63', 20, 4, 95.0), 
+-- ('Student64', 21, 4, 69.5), 
+-- ('Student65', 22, 4, 71.0), 
+-- ('Student66', 18, 4, 91.0), 
+-- ('Student67', 19, 4, 82.5), 
+-- ('Student68', 20, 4, 76.0), 
+-- ('Student69', 21, 4, 93.5), 
+-- ('Student70', 22, 4, 98.0), 
+-- ('Student71', 18, 4, 90.0), 
+-- ('Student72', 19, 4, 85.0), 
+-- ('Student73', 20, 4, 78.5), 
+-- ('Student74', 21, 4, 66.0), 
+-- ('Student75', 22, 4, 88.0), 
+-- ('Student76', 18, 4, 83.0), 
+-- ('Student77', 19, 4, 81.5), 
+-- ('Student78', 20, 4, 86.0), 
+-- ('Student79', 21, 4, 94.5), 
+-- ('Student80', 22, 4, 80.0),
+-- ('Student81', 18, 5, 89.5), 
+-- ('Student82', 19, 5, 82.0), 
+-- ('Student83', 20, 5, 96.0), 
+-- ('Student84', 21, 5, 70.5), 
+-- ('Student85', 22, 5, 70.0), 
+-- ('Student86', 18, 5, 92.0), 
+-- ('Student87', 19, 5, 83.5), 
+-- ('Student88', 20, 5, 75.0), 
+-- ('Student89', 21, 5, 94.5), 
+-- ('Student90', 22, 5, 99.0), 
+-- ('Student91', 18, 5, 91.0), 
+-- ('Student92', 19, 5, 86.0), 
+-- ('Student93', 20, 5, 79.5), 
+-- ('Student94', 21, 5, 65.0), 
+-- ('Student95', 22, 5, 89.0), 
+-- ('Student96', 18, 5, 84.0), 
+-- ('Student97', 19, 5, 82.5), 
+-- ('Student98', 20, 5, 87.0), 
+-- ('Student99', 21, 5, 95.5), 
+-- ('Student100', 22, 5, 81.0); 
+
+-- INSERT INTO assignment_scores (students_id, assignment_id, score) VALUES -- Assignment 1 Scores 
+-- (1, 1, 85.0), 
+-- (2, 1, 90.0), 
+-- (3, 1, 75.0), 
+-- (4, 1, 88.0), 
+-- (5, 1, 92.0), 
+-- (6, 1, 80.0), 
+-- (7, 1, 77.0), 
+-- (8, 1, 85.5), 
+-- (9, 1, 89.0), 
+-- (10, 1, 95.0), 
+-- (11, 1, 78.0), 
+-- (12, 1, 82.0), 
+-- (13, 1, 76.0), 
+-- (14, 1, 84.0), 
+-- (15, 1, 90.5), 
+-- (16, 1, 88.5), 
+-- (17, 1, 79.0), 
+-- (18, 1, 86.0), 
+-- (19, 1, 91.0), 
+-- (20, 1, 87.0), 
+-- -- Assignment 2 Scores 
+-- (21, 2, 83.0), 
+-- (22, 2, 88.0), 
+-- (23, 2, 74.0), 
+-- (24, 2, 89.0), 
+-- (25, 2, 93.0), 
+-- (26, 2, 81.0), 
+-- (27, 2, 78.0), 
+-- (28, 2, 86.5), 
+-- (29, 2, 90.0), 
+-- (30, 2, 96.0), 
+-- (31, 2, 79.0), 
+-- (32, 2, 83.0), 
+-- (33, 2, 77.0), 
+-- (34, 2, 85.0), 
+-- (35, 2, 91.5), 
+-- (36, 2, 89.5), 
+-- (37, 2, 80.0), 
+-- (38, 2, 87.0), 
+-- (39, 2, 92.0), 
+-- (40, 2, 88.0), 
+-- -- Assignment 3 Scores 
+-- (41, 3, 84.0), 
+-- (42, 3, 89.0), 
+-- (43, 3, 73.0), 
+-- (44, 3, 90.0), 
+-- (45, 3, 94.0), 
+-- (46, 3, 82.0), 
+-- (47, 3, 79.0), 
+-- (48, 3, 87.5), 
+-- (49, 3, 91.0), 
+-- (50, 3, 97.0), 
+-- (51, 3, 80.0), 
+-- (52, 3, 84.0), 
+-- (53, 3, 78.0), 
+-- (54, 3, 86.0), 
+-- (55, 3, 92.5), 
+-- (56, 3, 90.5), 
+-- (57, 3, 81.0), 
+-- (58, 3, 88.0), 
+-- (59, 3, 93.0), 
+-- (60, 3, 89.0), 
+-- -- Assignment 4 Scores 
+-- (61, 4, 85.0), 
+-- (62, 4, 90.0), 
+-- (63, 4, 72.0), 
+-- (64, 4, 91.0), 
+-- (65, 4, 95.0), 
+-- (66, 4, 83.0), 
+-- (67, 4, 80.0), 
+-- (68, 4, 88.5), 
+-- (69, 4, 92.0), 
+-- (70, 4, 98.0), 
+-- (71, 4, 81.0), 
+-- (72, 4, 85.0), 
+-- (73, 4, 79.0), 
+-- (74, 4, 87.0), 
+-- (75, 4, 93.5), 
+-- (76, 4, 91.5), 
+-- (77, 4, 82.0), 
+-- (78, 4, 89.0), 
+-- (79, 4, 94.0), 
+-- (80, 4, 90.0), 
+-- -- Assignment 5 Scores 
+-- (81, 5, 86.0), 
+-- (82, 5, 91.0), 
+-- (83, 5, 71.0), 
+-- (84, 5, 92.0), 
+-- (85, 5, 96.0), 
+-- (86, 5, 84.0), 
+-- (87, 5, 81.0), 
+-- (88, 5, 89.5), 
+-- (89, 5, 93.0), 
+-- (90, 5, 99.0), 
+-- (91, 5, 82.0), 
+-- (92, 5, 86.0), 
+-- (93, 5, 80.0), 
+-- (94, 5, 88.0), 
+-- (95, 5, 94.5);
+
+
+-- NOMOR 1
+-- SELECT*FROM students WHERE age > 20;
+
+-- NOMOR 2
+-- SELECT DISTINCT campus_name, batch 
+-- FROM campus
+-- ORDER BY batch ASC
+
+-- NOMOR 3
+-- SELECT 
+-- assignment_name, 
+-- AVG(s.score) AS average_score
+-- FROM assignments a
+-- INNER JOIN assignment_scores s ON a.id = s.assignment_id
+-- GROUP BY assignment_name;
+
+-- NOMOR 4
+-- SELECT 
+-- campus_name, AVG(s.total_grade) AS average_total_grade
+-- FROM campus c
+-- INNER JOIN students s ON c.id = s.campus_id
+-- GROUP BY c.campus_name
+-- HAVING AVG(s.total_grade) > 85;
+
